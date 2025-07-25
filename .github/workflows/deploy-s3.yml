@@ -26,6 +26,7 @@ jobs:
       run: npm ci
 
     - name: Build project
+      working-directory: ./book-app
       run: npm run build
 
     - name: Deploy to S3
