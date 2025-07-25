@@ -14,10 +14,13 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const baseUrl = import.meta.VITE_API_BASE_URL;
+  console.log(baseUrl);
+
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch('http://localhost:5148/api/Book');
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/Book`);
         if (!response.ok) {
           throw new Error('Failed to fetch books');
         }
